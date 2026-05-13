@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haechie's</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor-outer"></div>
+<div id="cursor-star">
+  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="10,1 12.5,7.5 19,8 14,13 15.9,19.5 10,16 4.1,19.5 6,13 1,8 7.5,7.5"
+      fill="#6B0F1A" opacity="0.9"/>
+  </svg>
+</div>
+
+<!-- ERROR TOAST -->
+<div class="error-toast" id="errorToast">Username atau password salah!</div>
+
+<!-- SIGN IN MODAL -->
+<div class="modal-overlay" id="signinModal">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-box" id="modalBox">
+    <div class="modal-title">Sign In</div>
+    <div class="modal-subtitle">Welcome</div>
+    <div class="modal-field">
+      <label>Email</label>
+      <input type="email" id="emailInput" placeholder="yourname@gmail.com" autocomplete="off">
+    </div>
+    <div class="modal-field">
+      <label>Password</label>
+      <input type="password" id="passInput" placeholder="••••••••">
+    </div>
+    <button class="modal-submit" id="signinSubmit">Masuk</button>
+  </div>
+</div>
+
+<!-- PAGE 1 — Haechan -->
+<div id="page1" class="page active">
+
+  <div class="nav-arrow right" id="arrowRight" onclick="goToPage2()">→</div>
+
+  <div class="hero-header">
+    <button class="signin-btn" id="signinBtnTop" onclick="openSignin()">Sign In</button>
+
+    <!-- SOSMED BAR — edit nama & href di sini -->
+    <div class="header-socmed" id="headerSocmed">
+      <a class="header-socmed-item" href="https://www.instagram.com/sqivhc/?hl=en" target="_blank">
+        <span class="header-socmed-app">Instagram</span>
+        <span class="header-socmed-user">@sqivhc</span>
+      </a>
+      <a class="header-socmed-item" href="https://www.tiktok.com/@0006.v" target="_blank">
+        <span class="header-socmed-app">TikTok</span>
+        <span class="header-socmed-user">@0006.v</span>
+      </a>
+      <a class="header-socmed-item" href="https://sqivv.blogspot.com" target="_blank">
+        <span class="header-socmed-app">Blogger</span>
+        <span class="header-socmed-user">sqivv.blogspot.com</span>
+      </a>
+    </div>
+
+    <div class="welcome-text" id="welcomeText" onclick="openSignin()">
+      <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span><span>!</span>
+    </div>
+  </div>
+
+  <!-- ANIMATED WAVE -->
+  <div class="wave-wrap">
+    <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 130" preserveAspectRatio="none">
+      <path class="wave-layer wave-layer-3"
+        d="M0,70 C200,110 400,20 600,65 C800,110 1000,15 1200,60 C1320,85 1400,40 1440,55 L1440,130 L0,130 Z"/>
+      <path class="wave-layer wave-layer-2"
+        d="M0,60 C160,100 320,10 520,55 C720,100 920,10 1120,55 C1280,90 1380,35 1440,50 L1440,130 L0,130 Z"/>
+      <path class="wave-layer wave-layer-1"
+        d="M0,50 C180,95 360,5 540,50 C720,95 900,5 1080,50 C1260,95 1380,25 1440,45 L1440,130 L0,130 Z"/>
+    </svg>
+  </div>
+
+  <div class="content-section">
+    <div class="header-shadow"></div>
+
+    <div class="member-card pop-hover" id="memberCard">
+      <div class="member-photo-wrap pop-hover">
+        <img src="https://0.soompi.io/wp-content/uploads/2025/08/27090202/Haechan-10-2.jpeg"
+          alt="Lee Haechan"
+          onerror="this.style.background='#f5d0d6';this.style.minHeight='280px'">
+      </div>
+      <div class="member-info">
+        <div class="member-name">Lee Haechan</div>
+        <div class="bio-item pop-hover"><strong>Nama Asli:</strong> Lee Dong Hyuck</div>
+        <div class="bio-item pop-hover"><strong>Posisi:</strong> Main Vocalist, Lead Dancer</div>
+        <div class="bio-item pop-hover"><strong>Unit:</strong> NCT 127, NCT DREAM, NCT U</div>
+        <a class="social-link pop-hover"
+           href="https://www.instagram.com/haechanahceah/?hl=en" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page1 -->
+
+<!-- PAGE 2 — Your Profile -->
+<div id="page2" class="page">
+
+  <div class="page2-bg">
+    <img src="https://0.soompi.io/wp-content/uploads/2025/08/27085916/Haechan_86ab01.jpeg" alt="bg">
+  </div>
+
+  <div class="nav-arrow left visible" id="arrowLeft" onclick="goToPage1()">←</div>
+
+  <div class="page2-content">
+    <div class="profile-card pop-hover" id="profileCard">
+
+      <!-- KOLOM KIRI: foto + sosmed di bawahnya -->
+      <div class="profile-left-col">
+
+        <div class="profile-photo-wrap pop-hover">
+          <img src="qiva.jpeg" alt="Foto Profil"
+            style="width:180px;height:220px;object-fit:cover;border-radius:16px;border:2px solid rgba(255,255,255,0.25);">
+        </div>
+
+        <!-- SOSMED DI BAWAH FOTO -->
+        <div class="socmed-section-side">
+          <a class="socmed-side-item pop-hover" href="https://www.instagram.com/sqivhc/?hl=en" target="_blank">
+            <div class="socmed-icon ig">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <span>Instagram</span>
+          </a>
+          <a class="socmed-side-item pop-hover" href="https://www.tiktok.com/@0006.v" target="_blank">
+            <div class="socmed-icon tiktok">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.19 8.19 0 004.79 1.52V7.12a4.85 4.85 0 01-1.02-.43z"/></svg>
+            </div>
+            <span>TikTok</span>
+          </a>
+          <a class="socmed-side-item pop-hover" href="https://sqivv.blogspot.com" target="_blank">
+            <div class="socmed-icon blogger">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.5 0h-13A5.5 5.5 0 000 5.5v13A5.5 5.5 0 005.5 24h13a5.5 5.5 0 005.5-5.5v-13A5.5 5.5 0 0018.5 0zM12 18.5H8a4.5 4.5 0 010-9h.04A4.49 4.49 0 0112 6.5h2a2.5 2.5 0 011.93 4.1 4.49 4.49 0 01.57 2.15A5.5 5.5 0 0112 18.5zm2-6H8a1.5 1.5 0 000 3h6a1.5 1.5 0 000-3zm-2-3h-4a1.5 1.5 0 000 3h4a1.5 1.5 0 000-3z"/></svg>
+            </div>
+            <span>Blogger</span>
+          </a>
+        </div>
+
+      </div><!-- /profile-left-col -->
+
+      <!-- KOLOM KANAN: biodata -->
+      <div class="profile-info">
+
+        <div class="profile-display-name">Tsaqiva</div>
+
+        <div class="bio-field">
+          <label>Nama Lengkap</label>
+          <div class="bio-value">Hola there! my name is Tsaqiva</div>
+        </div>
+        <div class="bio-field">
+          <label>Tentang Aku</label>
+          <div class="bio-value">Aku adalah siswa TKJ di MAN 2 Cianjur yang punya minat besar di bidang teknologi dan desain kreatif. Aku suka mengulik hal-hal teknis seperti urusan kelistrikan dan rakit-merakit elektronik, sekaligus mengasah sisi visualku lewat berbagai proyek desain.</div>
+        </div>
+
+        <div class="address-section">
+          <div class="address-label">Alamat</div>
+          <div class="address-display pop-hover" onclick="toggleMap()">
+            <span>📍</span>
+            <span id="addressText">Jln. Pasir cina inpres, Cipendawa, Jawa Barat</span>
+            <span class="map-toggle-hint">— klik untuk lihat map</span>
+          </div>
+          <iframe id="mapFrame" class="map-iframe" style="display:none;"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div><!-- /profile-info -->
+
+    </div>
+  </div>
+
+</div><!-- /page2 -->
+
+<!-- JAVASCRIPT -->
+<script>
+let isLoggedIn = false;
+let mouseX = 0, mouseY = 0, starX = 0, starY = 0;
+
+const cursorOuter = document.getElementById('cursor-outer');
+const cursorStar  = document.getElementById('cursor-star');
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorOuter.style.left = mouseX + 'px';
+  cursorOuter.style.top  = mouseY + 'px';
+});
+
+(function animateStar() {
+  starX += (mouseX - starX) * 0.12;
+  starY += (mouseY - starY) * 0.12;
+  cursorStar.style.left = starX + 'px';
+  cursorStar.style.top  = starY + 'px';
+  requestAnimationFrame(animateStar);
+})();
+
+document.querySelectorAll('.pop-hover, button, a, input').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOuter.style.transform  = 'translate(-50%,-50%) scale(1.5)';
+    cursorOuter.style.background = 'rgba(107,15,26,0.12)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorOuter.style.transform  = 'translate(-50%,-50%) scale(1)';
+    cursorOuter.style.background = 'rgba(255,255,255,0.08)';
+  });
+});
+
+(function initCardPopup() {
+  const card = document.getElementById('memberCard');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => card.classList.add('popped'), 200);
+        obs.unobserve(card);
+      }
+    });
+  }, { threshold: 0.15 });
+  obs.observe(card);
+})();
+
+function openSignin() {
+  document.getElementById('signinModal').classList.add('active');
+  document.getElementById('emailInput').focus();
+}
+function closeSignin() {
+  document.getElementById('signinModal').classList.remove('active');
+}
+
+document.getElementById('modalBackdrop').addEventListener('click', closeSignin);
+document.getElementById('modalBox').addEventListener('click', e => e.stopPropagation());
+
+document.getElementById('emailInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('passInput').focus();
+});
+document.getElementById('passInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doSignin();
+});
+document.getElementById('signinSubmit').addEventListener('click', doSignin);
+
+function doSignin() {
+  const email = document.getElementById('emailInput').value.trim();
+  const pass  = document.getElementById('passInput').value;
+
+  if (!email.toLowerCase().endsWith('@gmail.com') || pass.length < 1) {
+    showError();
+    return;
+  }
+
+  isLoggedIn = true;
+  closeSignin();
+
+  document.getElementById('signinBtnTop').classList.add('logged-in');
+  document.getElementById('headerSocmed').classList.add('visible');
+
+  setTimeout(() => goToPage2(), 400);
+}
+
+function showError() {
+  const toast = document.getElementById('errorToast');
+  toast.classList.add('show');
+  const box = document.getElementById('modalBox');
+  box.style.transform = 'translateX(-8px)';
+  setTimeout(() => box.style.transform = 'translateX(8px)',  80);
+  setTimeout(() => box.style.transform = 'translateX(-5px)', 160);
+  setTimeout(() => box.style.transform = 'translateX(0)',    240);
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function transitionTo(fn) {
+  const overlay = document.getElementById('transitionOverlay');
+  overlay.classList.remove('out');
+  overlay.classList.add('in');
+  overlay.style.display = 'flex';
+  setTimeout(() => { fn(); window.scrollTo(0, 0); }, 500);
+  setTimeout(() => { overlay.classList.remove('in'); overlay.classList.add('out'); }, 700);
+  setTimeout(() => { overlay.style.display = 'none'; overlay.classList.remove('out'); }, 1300);
+}
+
+function goToPage2() {
+  transitionTo(() => {
+    document.getElementById('page1').classList.remove('active');
+    document.getElementById('page2').classList.add('active');
+    document.getElementById('arrowRight').classList.add('visible');
+    setTimeout(() => document.getElementById('profileCard').classList.add('popped'), 300);
+  });
+}
+
+function goToPage1() {
+  transitionTo(() => {
+    document.getElementById('page2').classList.remove('active');
+    document.getElementById('page1').classList.add('active');
+  });
+}
+
+let mapOpen = false;
+function toggleMap() {
+  const frame = document.getElementById('mapFrame');
+  mapOpen = !mapOpen;
+  if (mapOpen) {
+    frame.src = 'https://www.google.com/maps/embed?pb=!4v1778634788138!6m8!1m7!1sEle6uXlu0OKL02yxEOTaGQ!2m2!1d-6.753753789002639!2d107.045591118311!3f185.0666077698726!4f-25.43353734131!5f0.7820865974627469';
+    frame.style.display = 'block';
+    document.querySelector('.map-toggle-hint').textContent = '— klik untuk tutup';
+  } else {
+    frame.style.display = 'none';
+    frame.src = '';
+    document.querySelector('.map-toggle-hint').textContent = '— klik untuk lihat map';
+  }
+}
+</script>
+
+<!-- PAGE TRANSITION OVERLAY -->
+<div id="transitionOverlay" style="display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center;overflow:hidden;pointer-events:none;">
+  <div id="transitionCurtain"></div>
+  <div id="transitionIcon">
+    <svg width="52" height="52" viewBox="0 0 20 20" fill="none">
+      <polygon points="10,1 12.5,7.5 19,8 14,13 15.9,19.5 10,16 4.1,19.5 6,13 1,8 7.5,7.5"
+               fill="white" opacity="0.95"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
